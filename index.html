@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enciclopedia Motors | Proyecto WikiMotor</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js para el gráfico de rendimiento -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="nav-logo">WIKI<span style="color: #d5001c;">MOTOR</span></div>
+        <div class="search-container">
+            <input type="text" id="wiki-search" placeholder="Buscar auto o tecnología...">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#historia">Artículos</a></li>
+            <li><a href="#ingenieria">Ingeniería</a></li>
+            <li><a href="#teoria">Teoría</a></li>
+            <li><a href="#calculadora">Herramientas</a></li>
+        </ul>
+    </nav>
+
+    <!-- HEADER CON IMAGEN DE FONDO -->
+    <header class="wiki-header">
+        <h1>Enciclopedia Motors</h1>
+        <p class="subtitle">La fuente abierta del conocimiento automotriz de alto rendimiento.</p>
+        <button id="theme-toggle">Cambiar Modo</button>
+        <hr>
+    </header>
+
+    <main class="container">
+        
+        <!-- SECCIÓN: LEYENDAS CON HISTORIA -->
+        <section id="historia">
+            <h2 class="section-title">Grandes Leyendas del Asfalto</h2>
+            
+            <!-- McLaren F1 -->
+            <div class="wiki-article">
+                <div class="article-content">
+                    <h3>McLaren F1</h3>
+                    <p>Diseñado por Gordon Murray, el McLaren F1 no solo fue el auto de producción más rápido del mundo, sino una obra maestra de empaquetamiento técnico. Su motor V12 de origen BMW se aisló con una capa de oro real para disipar el calor.</p>
+                    <div class="quick-specs">
+                        <div><span>MOTOR:</span> V12 6.1L BMW S70/2</div>
+                        <div><span>V-MAX:</span> 386 km/h</div>
+                    </div>
+                </div>
+                <div class="article-image">
+                    <img src="1996 McLaren F1.jpg" alt="McLaren F1">
+                    <span class="caption">Imagen: McLaren F1 de 1996</span>
+                </div>
+            </div>
+
+            <!-- Toyota GT-One -->
+            <div class="wiki-article reverse">
+                <div class="article-content">
+                    <h3>Toyota GT-One (TS020)</h3>
+                    <p>Diseñado para las 24 Horas de Le Mans bajo normativa GT1. Su chasis monocasco de fibra de carbono y su motor V8 biturbo de 3.6 litros lo hacían virtualmente imbatible en pista.</p>
+                </div>
+                <div class="article-image">
+                    <img src="Toyota 046.jpg" alt="Toyota GT-One">
+                    <span class="caption">Imagen: Toyota GT-One de Le Mans</span>
+                </div>
+            </div>
+
+            <!-- Lancia Stratos -->
+            <div class="wiki-article">
+                <div class="article-content">
+                    <h3>Lancia Stratos HF</h3>
+                    <p>Dominio puro en Rally. Con su motor Dino V6 central de origen Ferrari, el Stratos demostró que un chasis corto y ligero podía vencer a potencias superiores.</p>
+                    <table class="quick-spec">
+                        <tr><td><strong>Motor</strong></td><td>Dino V6 2.4L</td></tr>
+                        <tr><td><strong>Configuración</strong></td><td>Central Transversal</td></tr>
+                    </table>
+                    <div style="display: flex; margin-top: 15px;">
+            <button class="btn-play" onclick="reproducirMotor('lancia')">🔊 ESCUCHAR V6 DINO</button>
+            <button class="btn-stop" onclick="if(currentAudio) currentAudio.pause()" style="background-color: #d5001c; margin-left: 10px; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold;">➔ DETENER</button>
+        </div>
+                </div>
+                <div class="article-image">
+                    <img src="lancia stratos.jpg" alt="Lancia Stratos">
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: INGENIERÍA (GRID) -->
+        <section id="ingenieria">
+            <h2 class="section-title">Innovaciones en Ingeniería</h2>
+            <div class="wiki-grid">
+                <div class="grid-card">
+                    <img src="volkswagen w12 nardo.jpg" alt="VW W12 Nardo">
+                    <h4>Volkswagen W12 Nardò</h4>
+                    <p>Prototipo de resistencia que estableció el récord mundial recorriendo 7,740 km en 24 horas.</p>
+                </div>
+                <div class="grid-card">
+                    <img src="boxer diesel.jpg" alt="Subaru Boxer Diesel">
+                    <h4>Subaru Bóxer Diesel (EE20)</h4>
+                    <p>Único en su clase: combina el bajo centro de gravedad bóxer con el alto torque del diesel.</p>
+                </div>
+                <div class="grid-card">
+                    <img src="saab engine.jpg" alt="Saab Turbo">
+                    <h4>Saab Turbo Technology</h4>
+                    <p>Pioneros en llevar la tecnología Turbo fiable de los aviones a los autos de calle en 1978.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: TEORÍA Y FUNDAMENTOS -->
+        <!-- SECCIÓN: TEORÍA Y FUNDAMENTOS -->
+<section id="teoria" class="theory-section">
+    <h2 class="section-title">Fundamentos de Ingeniería</h2>
+    <div class="theory-grid">
+        <div class="theory-card">
+            <h3>Equilibrio de Fuerzas</h3>
+            <p>En un motor Bóxer, los pistones se mueven en pares opuestos, cancelando vibraciones naturalmente sin necesidad de ejes de equilibrado pesados.</p>
+        </div>
+        <div class="theory-card">
+            <h3>Centro de Gravedad Bajo</h3>
+            <p>Al estar "acostado", el motor reduce el balanceo en curvas, una ventaja técnica que marcas como Subaru y Porsche aprovechan para mejorar el manejo.</p>
+        </div>
+    </div>
+</section>
+        <section id="galeria-leyendas">
+    <h2 class="section-title">Galería de Leyendas</h2>
+    <div class="wiki-grid">
+        <!-- Ejemplo con el Mazda 787B -->
+        <div class="grid-card legend-card">
+            <img src="carimg/Mazda 787B.jpg" alt="Mazda 787B">
+            <h4>Mazda 787B</h4>
+            <p>El único auto con motor rotativo en ganar Le Mans.</p>
+        </div>
+        
+        <!-- Ejemplo con el Lancia Delta S4 -->
+        <div class="grid-card legend-card">
+            <img src="carimg/Lancia delta s4.jpg" alt="Lancia Delta S4">
+            <h4>Lancia Delta S4</h4>
+            <p>La máxima expresión técnica del Grupo B de Rally.</p>
+        </div>
+        
+        <!-- Puedes seguir añadiendo el resto aquí... -->
+    </div>
+</section>
+
+        <!-- SECCIÓN: HERRAMIENTAS INTERACTIVAS -->
+        <section id="calculadora">
+            <h2 class="section-title">Calculadora y Comparador</h2>
+            <div class="calc-container">
+                <p>Convierte HP a kW:</p>
+                <input type="number" id="hp-input" placeholder="Ej. 394 HP">
+                <button id="calc-btn">Convertir</button>
+                <p id="result">Resultado: -- kW</p>
+            </div>
+            <!-- SECCIÓN: ENCICLOPEDIA DE LEYENDAS -->
+<section id="galeria-autos">
+    <h2 class="section-title">Enciclopedia de Leyendas</h2>
+
+    <!-- Lancia Delta S4 -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Lancia Delta S4 (Grupo B)</h3>
+            <p>La máxima evolución tecnológica del Grupo B. Fue pionero en usar "Twincharging" (Turbo + Supercargador).</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>1.8L Twincharged</td></tr>
+                <tr><td><strong>Tracción</strong></td><td>Integral (AWD)</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/lancia-delta-s4.jpg" alt="Lancia Delta S4">
+        </div>
+    </div>
+
+    <!-- Mazda 787B -->
+    <div class="wiki-article reverse">
+        <div class="article-content">
+            <h3>Mazda 787B</h3>
+            <p>Famoso por su inconfundible sonido agudo y su motor rotativo Wankel. Único japonés en ganar Le Mans hasta 2018.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>R26B 4-Rotores</td></tr>
+                <tr><td><strong>Potencia</strong></td><td>700 HP @ 9000 RPM</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/mazda-787b.jpg" alt="Mazda 787B">
+        </div>
+    </div>
+
+    <!-- Ford GT40 -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Ford GT40</h3>
+            <p>Nacido de una rivalidad histórica entre Ford y Ferrari. Este auto rompió el dominio europeo en Le Mans ganando 4 veces consecutivas desde 1966.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>V8 Small Block 289ci / 427ci</td></tr>
+                <tr><td><strong>Dimensiones</strong></td><td>Altura de solo 40 pulgadas</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/ford-gt40.jpg" alt="Ford GT40">
+        </div>
+    </div>
+</section>
+            <div class="comparador-controles" style="margin-top: 30px;">
+                <select id="motor1">
+                    <option value="">Selecciona Motor 1</option>
+                    <option value="subaru_h4">Subaru Bóxer H4</option>
+                    <option value="porsche_h6">Porsche 911 H6</option>
+                    <option value="lancia_v6">Lancia V6 Dino</option>
+                </select>
+                <span class="vs"> VS </span>
+                <select id="motor2">
+                    <option value="">Selecciona Motor 2</option>
+                    <option value="subaru_h4">Subaru Bóxer H4</option>
+                    <option value="porsche_h6">Porsche 911 H6</option>
+                    <option value="lancia_v6">Lancia V6 Dino</option>
+                </select>
+            </div>
+            <div id="resultado-comparacion"></div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Enciclopedia Motors | Proyecto WikiMotor</p>
+        <p style="font-size: 0.8rem;">Desarrollado por Samuel Castillo</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+<section id="rally-legends">
+    <h2 class="section-title">Leyendas del Rally y Tracción Total</h2>
+
+    <!-- Audi Quattro / Lancia 037 -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Lancia Rally 037</h3>
+            <p>El último auto de tracción trasera en ganar un campeonato mundial de rally frente a los gigantes de tracción integral. Un diseño puro de Abarth con motor central sobrealimentado.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>2.0L Supercharged i4</td></tr>
+                <tr><td><strong>Tracción</strong></td><td>Trasera (RWD)</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/Lancia rally 037.jpg" alt="Lancia Rally 037">
+        </div>
+    </div>
+
+    <!-- Toyota Celica GT-Four -->
+    <div class="wiki-article reverse">
+        <div class="article-content">
+            <h3>Toyota Celica GT-Four WD</h3>
+            <p>El auto que puso a Toyota en el mapa del WRC. Su sistema de tracción total avanzada lo hizo dominante en los años 90.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>3S-GTE Turbo</td></tr>
+                <tr><td><strong>Tracción</strong></td><td>All-Wheel Drive</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/Toyota celica GT Four 4WD.jpg" alt="Toyota Celica GT-Four">
+        </div>
+    </div>
+
+    <!-- MG Metro 6R4 -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>MG Metro 6R4</h3>
+            <p>Una de las máquinas más extremas del Grupo B. A diferencia de sus competidores turbo, apostó por un motor V6 atmosférico de altas RPM.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>3.0L V6 90°</td></tr>
+                <tr><td><strong>Potencia</strong></td><td>~410 HP</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/MG metro 6r4.jpg" alt="MG Metro 6R4">
+        </div>
+    </div>
+</section>
+<section id="pista-legends">
+    <h2 class="section-title">Ingeniería de Circuito</h2>
+
+    <!-- BMW M3 GTR -->
+    <div class="wiki-article reverse">
+        <div class="article-content">
+            <h3>BMW M3 GTR (E46)</h3>
+            <p>Famoso por su motor V8 que rompió la tradición del seis en línea para dominar las American Le Mans Series. Un icono de la fibra de carbono y la aerodinámica.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>4.0L P60 V8</td></tr>
+                <tr><td><strong>Transmisión</strong></td><td>Secuencial de 6 marchas</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/bmw-m3-e46-gtr.jpg" alt="BMW M3 GTR">
+        </div>
+    </div>
+
+    <!-- Sauber Mercedes C9 -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Sauber Mercedes C9</h3>
+            <p>La "Flecha de Plata" moderna. Un prototipo del Grupo C que alcanzó los 400 km/h en la recta de Mulsanne gracias a su motor V8 biturbo.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>5.0L V8 Biturbo</td></tr>
+                <tr><td><strong>Logro</strong></td><td>Ganador de Le Mans 1989</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/Sauber mercedez C9.jpg" alt="Sauber Mercedes C9">
+        </div>
+    </div>
+</section>
+<!-- Citroën BX 4TC -->
+<div class="wiki-article">
+    <div class="article-content">
+        <h3>Citroën BX 4TC (Evolución)</h3>
+        <p>Una de las propuestas más inusuales del Grupo B. Intentó adaptar la famosa suspensión hidroneumática de Citroën a la competición, pero su motor longitudinal extremadamente adelantado comprometía su equilibrio en saltos y curvas cerradas.</p>
+        <table class="quick-spec">
+            <tr><td><strong>Motor</strong></td><td>2.1L Turbo N9TE</td></tr>
+            <tr><td><strong>Suspensión</strong></td><td>Hidroneumática regulable</td></tr>
+        </table>
+    </div>
+    <div class="article-image">
+        <img src="carimg/Citroen-BX-4TC-Evolution.jpg" alt="Citroën BX 4TC">
+        <span class="caption">Rareza técnica: Suspensión de lujo en el barro.</span>
+    </div>
+</div>
+
+<!-- Opel Manta 400 -->
+<div class="wiki-article reverse">
+    <div class="article-content">
+        <h3>Opel Manta 400</h3>
+        <p>A diferencia de los monstruos AWD de la época, el Manta 400 se mantuvo fiel a la tracción trasera. Fue reconocido por su increíble fiabilidad mecánica y por ser uno de los últimos "puristas" antes de la era total del turbo y la tracción integral.</p>
+        <table class="quick-spec">
+            <tr><td><strong>Motor</strong></td><td>2.4L Cosworth Atmosférico</td></tr>
+            <tr><td><strong>Tracción</strong></td><td>Trasera (RWD)</td></tr>
+        </table>
+    </div>
+    <div class="article-image">
+        <img src="carimg/Opel manta 400.jpg" alt="Opel Manta 400">
+    </div>
+</div>
+<!-- SECCIÓN: HITOS DEL DISEÑO -->
+<section id="hitos-diseno">
+    <h2 class="section-title">Hitos del Diseño y Estética</h2>
+
+    <!-- Lamborghini Miura -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Lamborghini Miura P400</h3>
+            <p>El auto que definió el término "Supercar". Diseñado por Marcello Gandini de Bertone, el Miura rompió esquemas al colocar su potente motor V12 de forma central y transversal, logrando una silueta baja y agresiva que sigue siendo referencia de belleza automotriz.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>V12 3.9L Transversal</td></tr>
+                <tr><td><strong>Diseño</strong></td><td>Marcello Gandini (Bertone)</td></tr>
+                <tr><td><strong>Legado</strong></td><td>Primer superdeportivo de motor central</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/Lamborghini Miura.jpg" alt="Lamborghini Miura">
+            <span class="caption">Imagen: El origen del superdeportivo moderno.</span>
+        </div>
+    </div>
+</section>
+<!-- SSC Ultimate Aero -->
+<section id="records-velocidad">
+    <h2 class="section-title">Récords de Velocidad</h2>
+
+    <div class="wiki-article reverse">
+        <div class="article-content">
+            <h3>SSC Ultimate Aero</h3>
+            <p>Producido por Shelby SuperCars, este vehículo ostentó el título del auto de producción más rápido del mundo entre 2007 y 2010. Logró superar al Bugatti Veyron sin utilizar ayudas electrónicas, confiando únicamente en la habilidad del conductor y una aerodinámica refinada en túnel de viento de la NASA.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>V8 Biturbo 6.3L</td></tr>
+                <tr><td><strong>V-MAX</strong></td><td>412 km/h (Oficial)</td></tr>
+                <tr><td><strong>Potencia</strong></td><td>1,183 HP</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/SSC Ultimate Aero.jpg" alt="SSC Ultimate Aero">
+            <span class="caption">El retador estadounidense que venció a Europa.</span>
+        </div>
+    </div>
+</section>
+<!-- SECCIÓN: DOMINIO EN PISTA Y RESISTENCIA -->
+<section id="pista-avanzada">
+    <h2 class="section-title">Ingeniería de Pista y Resistencia</h2>
+
+    <!-- Alfa Romeo 155 V6 TI (DTM) -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Alfa Romeo 155 V6 TI (DTM)</h3>
+            <p>El auto que humilló a los alemanes en su propia casa. Con su sistema de tracción integral y un motor V6 capaz de girar a 11,500 RPM, el 155 DTM es una obra maestra de la ingeniería italiana de los 90.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>2.5L 60° V6</td></tr>
+                <tr><td><strong>Tracción</strong></td><td>AWD (4WD)</td></tr>
+                <tr><td><strong>RPM Máx</strong></td><td>11,500 RPM</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/alfa-155-dtm.jpg" alt="Alfa Romeo 155 DTM">
+            <span class="caption">Dominio italiano en el campeonato alemán.</span>
+        </div>
+    </div>
+
+    <!-- Nissan R390 GT1 -->
+    <div class="wiki-article reverse">
+        <div class="article-content">
+            <h3>Nissan R390 GT1</h3>
+            <p>Diseñado específicamente para las 24 Horas de Le Mans. Aunque solo se fabricó una unidad de calle para cumplir con la homologación, su motor V8 biturbo heredado de los prototipos del Grupo C lo convirtió en una leyenda instantánea.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>3.5L V8 Biturbo (VRH35L)</td></tr>
+                <tr><td><strong>Configuración</strong></td><td>Motor Central</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/Nissan R390GT1.jpg" alt="Nissan R390 GT1">
+        </div>
+    </div>
+
+    <!-- Sauber Mercedes C9 -->
+    <div class="wiki-article">
+        <div class="article-content">
+            <h3>Sauber Mercedes C9</h3>
+            <p>La culminación de la colaboración entre Sauber y Mercedes-Benz. Este prototipo del Grupo C es recordado por su icónica librea plateada y su capacidad para rozar los 400 km/h con una fiabilidad mecánica asombrosa.</p>
+            <table class="quick-spec">
+                <tr><td><strong>Motor</strong></td><td>M119 5.0L V8 Biturbo</td></tr>
+                <tr><td><strong>Logro</strong></td><td>1º y 2º puesto en Le Mans 1989</td></tr>
+            </table>
+        </div>
+        <div class="article-image">
+            <img src="carimg/Sauber mercedez C9.jpg" alt="Sauber Mercedes C9">
+        </div>
+    </div>
+</section>
+<section id="calculadora" class="telemetry-section">
+    <h2 class="section-title">Panel de Telemetría</h2>
+    <div class="telemetry-widget">
+        <div class="widget-header">
+            <span class="live-indicator">● LIVE DATA</span>
+            <span class="unit-toggle">UNIT CONVERTER / PERFORMANCE V1.0</span>
+        </div>
+        <div class="widget-main">
+            <div class="input-group">
+                <label for="hp-input">POTENCIA ENTRADA (HP)</label>
+                <input type="number" id="hp-input" placeholder="000">
+            </div>
+            <div class="conversion-arrow">➔</div>
+            <div class="output-group">
+                <label>POTENCIA SALIDA (kW)</label>
+                <div id="result" class="digital-display">00.0</div>
+            </div>
+        </div>
+        <button id="calc-btn" class="btn-compute">EJECUTAR CÁLCULO</button>
+    </div>
+</section>
+<div class="news-ticker">
+    <span class="ticker-label">BREAKING TECH:</span>
+    <marquee behavior="scroll" direction="left">
+        EL MOTOR BÓXER DE SUBARU CUMPLE 60 AÑOS DE EVOLUCIÓN... PORSCHE REFINA LA AERODINÁMICA ACTIVA EN EL NUEVO 911... EL SONIDO DEL MAZDA 787B SIGUE SIENDO EL MÁS ICÓNICO DE LE MANS...
+    </marquee>
+</div>
+<section id="glosario" class="glossary-section">
+    <h2 class="section-title">Glosario de Ingeniería</h2>
+    
+    <div class="glossary-grid">
+        <!-- Término: Twincharging -->
+        <div class="glossary-card">
+            <div class="term-header">
+                <span class="term-code">TECH-01</span>
+                <h3>Twincharging</h3>
+            </div>
+            <p>Sistema de inducción forzada que combina un <strong>Supercargador</strong> (para respuesta inmediata en bajas RPM) y un <strong>Turbocompresor</strong> (para máxima potencia en altas RPM). Es la tecnología que hizo al Lancia Delta S4 una máquina letal.</p>
+        </div>
+
+        <!-- Término: Monocasco -->
+        <div class="glossary-card">
+            <div class="term-header">
+                <span class="term-code">CHAS-02</span>
+                <h3>Chasis Monocasco</h3>
+            </div>
+            <p>Estructura donde el chasis y la carrocería forman una sola pieza integrada. Maximiza la rigidez torsional y reduce el peso, esencial en autos como el Toyota GT-One para soportar las fuerzas G en Le Mans.</p>
+        </div>
+
+        <!-- Término: Motor Rotativo -->
+        <div class="glossary-card">
+            <div class="term-header">
+                <span class="term-code">ENG-03</span>
+                <h3>Motor Wankel (Rotativo)</h3>
+            </div>
+            <p>Motor de combustión que utiliza rotores triangulares en lugar de pistones. Destaca por su alta relación potencia-peso y su capacidad de alcanzar RPM muy elevadas, como el motor R26B del Mazda 787B.</p>
+        </div>
+
+        <!-- Término: Symmetrical AWD -->
+        <div class="glossary-card">
+            <div class="term-header">
+                <span class="term-code">DRIVE-04</span>
+                <h3>Symmetrical AWD</h3>
+            </div>
+            <p>Configuración de tracción integral exclusiva de Subaru donde todo el tren motriz, desde el motor Bóxer hasta el diferencial, está alineado simétricamente a lo largo del eje del vehículo, optimizando el equilibrio y la estabilidad.</p>
+        </div>
+    </div>
+</section>
+<div class="search-container">
+    <input type="text" id="wiki-search" placeholder="ESCANEAR BASE DE DATOS (EJ. BÓXER, V6, TURBO)...">
+    <div id="search-status" class="search-status">READY</div>
+</div>
+<div class="blueprint-controls">
+    <label class="switch">
+        <input type="checkbox" id="blueprint-toggle">
+        <span class="slider round"></span>
+    </label>
+    <span class="mode-label">ENGINEERING MODE</span>
+</div>
+<!-- Jaguar XJR-9 -->
+<div class="wiki-article">
+    <div class="article-content">
+        <span class="category-tag">LE MANS LEGEND</span>
+        <h3>Jaguar XJR-9</h3>
+        <p>El "Monstruo de Seda". Diseñado por Tony Southgate, este prototipo del Grupo C rompió el dominio de Porsche en las 24 Horas de Le Mans. Destaca por sus carenados en las ruedas traseras para optimizar el flujo aerodinámico.</p>
+        <table class="quick-spec">
+            <tr><td><strong>Motor</strong></td><td>7.0L V12 Atmosférico</td></tr>
+            <tr><td><strong>Potencia</strong></td><td>750 HP</td></tr>
+        </table>
+    </div>
+    <div class="article-image">
+        <img src="carimg/Jaguar XJR-9.jpg" alt="Jaguar XJR-9">
+    </div>
+</div>
+
+<!-- BMW M3 GTR E46 -->
+<div class="wiki-article reverse">
+    <div class="article-content">
+        <span class="category-tag">DTM / ALMS</span>
+        <h3>BMW M3 GTR (E46)</h3>
+        <p>Una rareza absoluta. A diferencia del M3 convencional con motor de 6 cilindros, el GTR montaba un V8 P60 diseñado específicamente para competición, lo que generó una de las polémicas de homologación más famosas del automovilismo.</p>
+        <table class="quick-spec">
+            <tr><td><strong>Motor</strong></td><td>4.0L P60 V8</td></tr>
+            <tr><td><strong>Dato Clave</strong></td><td>Solo 10 unidades de calle producidas</td></tr>
+        </table>
+    </div>
+    <div class="article-image">
+        <img src="carimg/bmw-m3-e46-gtr.jpg" alt="BMW M3 GTR">
+    </div>
+</div>
+<section id="audio-library" class="telemetry-section">
+    <h2 class="section-title">Biblioteca Acústica</h2>
+    <div class="audio-grid">
+        <div class="audio-card">
+            <h4>MAZDA 787B (Rotativo)</h4>
+            <button class="btn-play" onclick="reproducirMotor('Mazda')">▶ REPRODUCIR 9000 RPM</button>
+        </div>
+        <div class="audio-card">
+            <h4>SUBARU EJ22 (Boxer)</h4>
+            <button class="btn-play" onclick="reproducirMotor('Subaru')">▶ REPRODUCIR RUMBLE</button>
+        </div>
+        <div class="audio-card">
+            <h4>SAAB 900 (Turbo)</h4>
+            <button class="btn-play" onclick="reproducirMotor('Saab')">▶ REPRODUCIR SPOOL</button>
+        </div>
+    </div>
+</section>
+</html>

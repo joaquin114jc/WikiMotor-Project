@@ -1,0 +1,34 @@
+{
+  "vehiculos": [
+    {
+      "id": 1,
+      "marca": "Subaru",
+      "modelo": "Crosstrek 2026",
+      "motor": "Boxer H4",
+      "transmision": "Manual",
+      "traccion": "Symmetrical AWD",
+      "descripcion": "Vehículo con sistema Symmetrical AWD, ideal para terrenos exigentes.",
+      "imagen": "carimg/subaru-crosstrek.jpg"
+    },
+    {
+      "id": 2,
+      "marca": "Lancia",
+      "modelo": "Delta S4",
+      "motor": "4 cilindros Twincharged",
+      "transmision": "Manual",
+      "traccion": "AWD",
+      "descripcion": "Leyenda del Grupo B con ingeniería de sobrealimentación dual.",
+      "imagen": "carimg/lancia-delta.jpg"
+    },
+    {
+      "id": 3,
+      "marca": "Porsche",
+      "modelo": "911 GT3",
+      "motor": "Boxer H6",
+      "transmision": "Manual",
+      "traccion": "RWD",
+      "descripcion": "Icono de la ingeniería alemana con motor trasero refrigerado por aire.",
+      "imagen": "carimg/porsche-gt3.jpg"
+    }
+  ]
+}
